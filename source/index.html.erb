@@ -1,0 +1,152 @@
+---
+title: Dot Ledger
+screenshots:
+ -
+   - title: Dashboard
+     filename: dashboard.png
+   - title: Account
+     filename: account.png
+   - title: Categories
+     filename: categories.png
+ -
+   - title: Goals
+     filename: goals.png
+   - title: New Category
+     filename: new-category.png
+   - title: New Payment
+     filename: new-payment.png
+ -
+   - title: Sorting Rules 
+     filename: sorting-rules.png
+   - title: Payments 
+     filename: payments.png
+   - title: New Sorting Rule
+     filename: new-sorting-rule.png
+---
+
+<div id="nav" class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-menu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="dot fa fa-circle"></span> Dot Ledger</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-nav-menu">
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+        <li><a href="#contribute">Contribute</a></li>
+        <li><a href="#demo">Demo</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="home" class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Dot Ledger</h1>
+        <p>Free and Open Source personal finance management.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <img src="/img/screenshots/desktop-screenshot.png" style="width: 100%;" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <h2>About</h2>
+
+    <div class="alert alert-warning"><strong>Warning!</strong> Dot Ledger is not yet stable and may undergo major changes before the first release.</div>
+
+    <p><strong>Dot Ledger</strong> is a web-based personal finance management tool.<p>
+    <p>The aim of this project is to create a stable, FOSS alternative to <a href="https://www.xero.com/personal/">Xero Personal</a>
+    which is being <a href="http://blog.xero.com/2013/08/winding-down-xero-personal-in-november-2014/">shut down</a> in November 2014.</p>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-sm-4 col-md-offset-3">
+        <h3>Features</h3>
+        <ul class="list-unstyled">
+          <li>Account dashboard</li>
+          <li>Spending goals</li>
+          <li>OFX import</li>
+          <li>Transaction categories</li>
+          <li>Sorting rules</li>
+          <li>Planned payments</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <h3>Roadmap</h3>
+        <ul class="list-unstyled">
+          <li>User authentication!</li>
+          <li>Email reminders</li>
+          <li>Transaction tags</li>
+          <li>Reports</li>
+          <li>Transaction search</li>
+          <li>Split transactions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots" class="dark">
+  <div class="container">
+    <h2>Screenshots</h2>
+    <% current_page.data.screenshots.each do |row| %>
+      <div class="row">
+      <% row.each do |screenshot| %>
+        <div class="col-md-4">
+          <a href="/img/screenshots/<%= screenshot['filename'] %>" class="thumbnail" data-caption="<%= screenshot['title'] %>" title="<%= screenshot['title'] %>">
+            <img src="/img/screenshots/<%= screenshot['filename'] %>" alt="<%= screenshot['title'] %>" />
+          </a>
+        </div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<section id="contribute">
+  <div class="container">
+    <h2>Contribute</h2>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <pre><code>git clone https://github.com/dotledger/dotledger.git</code></pre>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-md-offset-3">
+        <a href="https://github.com/dotledger/dotledger/stargazers" class="btn btn-lg btn-default btn-block"><span class="fa fa-star"></span> Star</a>
+      </div>
+      <div class="col-md-3">
+        <a href="https://github.com/dotledger/dotledger/fork" class="btn btn-lg btn-default btn-block"><span class="fa fa-code-fork"></span> Fork</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="dark">
+  <div class="container">
+    <h2>Demo</h2>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <p><a href="http://demo.dotledger.com/" class="btn btn-primary btn-block btn-lg">Launch Demo</a></p>
+      </div>
+    </div>
+  </div>
+</section>
