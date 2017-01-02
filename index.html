@@ -1,5 +1,6 @@
 ---
 title: Dot Ledger
+layout: default
 screenshots:
  -
    - title: Dashboard
@@ -63,13 +64,13 @@ screenshots:
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <img src="/img/screenshots/desktop-screenshot.png" style="width: 100%;" />
+              <img alt="Desktop screenshot" src="/assets/img/screenshots/desktop-screenshot.png" style="width: 100%;" />
             </div>
             <div class="item">
-              <img src="/img/screenshots/mobile-screenshots.png" style="width: 100%;" />
+              <img alt="Mobile screenshot" src="/assets/img/screenshots/mobile-screenshots.png" style="width: 100%;" />
             </div>
             <div class="item">
-              <img src="/img/screenshots/tablet-screenshot.png" style="width: 100%;" />
+              <img alt="Tablet screenshot" src="/assets/img/screenshots/tablet-screenshot.png" style="width: 100%;" />
             </div>
           </div>
 
@@ -79,15 +80,6 @@ screenshots:
             <li data-target="#home-screenshots" data-slide-to="1"></li>
             <li data-target="#home-screenshots" data-slide-to="2"></li>
           </ol>
-          <!-- Controls -->
-          <!--
-          <a class="left carousel-control" href="#home-screenshots" data-slide="prev">
-            <span class="fa fa-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#home-screenshots" data-slide="next">
-            <span class="fa fa-chevron-right"></span>
-          </a>
-          -->
         </div>
       </div>
     </div>
@@ -104,29 +96,38 @@ screenshots:
     <p>The aim of this project is to create a stable, FOSS alternative to <a href="https://www.xero.com/personal/">Xero Personal</a>
     which was <a href="http://blog.xero.com/2013/08/winding-down-xero-personal-in-november-2014/">shut down</a> in November 2014.</p>
 
-    <hr />
-
     <div class="row">
       <div class="col-sm-4 col-md-offset-3">
         <h3>Features</h3>
         <ul class="list-unstyled">
           <li>Account dashboard</li>
+          <li>REST API</li>
           <li>Spending goals</li>
           <li>OFX import</li>
+          <li>Income and expenses report</li>
           <li>Transaction categories</li>
           <li>Sorting rules</li>
+          <li>Account groups</li>
           <li>Planned payments</li>
+          <li>Transaction tags</li>
+          <li>Transaction search</li>
+          <li>Balance projection</li>
         </ul>
       </div>
       <div class="col-sm-4">
         <h3>Roadmap</h3>
         <ul class="list-unstyled">
-          <li>User authentication!</li>
           <li>Email reminders</li>
-          <li>Transaction tags</li>
-          <li>Reports</li>
-          <li>Transaction search</li>
+          <li>More reports</li>
           <li>Split transactions</li>
+          <li>Support other import formats (QIF etc)</li>
+          <li>Saved Searches</li>
+          <li>Transaction autocomplete</li>
+          <li>Track assets and liabilities</li>
+          <li>CSV export</li>
+          <li>API documentation</li>
+          <li>API clients</li>
+          <li><strong>Hosted SaaS version product</strong></li>
         </ul>
       </div>
     </div>
@@ -136,17 +137,20 @@ screenshots:
 <section id="screenshots" class="dark">
   <div class="container">
     <h2>Screenshots</h2>
-    <% current_page.data.screenshots.each do |row| %>
+
+    <div class="alert alert-warning"><strong>Warning!</strong> These screenshots are not up to date. Check out the <a href="#demo">demo</a>.</div>
+
+    {% for row in page.screenshots %}
       <div class="row">
-      <% row.each do |screenshot| %>
+      {% for screenshot in row %}
         <div class="col-md-4">
-          <a href="/img/screenshots/<%= screenshot['filename'] %>" class="thumbnail" data-caption="<%= screenshot['title'] %>" title="<%= screenshot['title'] %>">
-            <img src="/img/screenshots/<%= screenshot['filename'] %>" alt="<%= screenshot['title'] %>" />
+          <a href="/assets/img/screenshots/{{ screenshot.filename }}" class="thumbnail" data-caption="{{ screenshot.title }}" title="{{ screenshot.title }}">
+            <img src="/assets/img/screenshots/{{ screenshot.filename }}" alt="{{ screenshot.title }}" />
           </a>
         </div>
-      <% end %>
+      {% endfor %}
       </div>
-    <% end %>
+    {% endfor %}
   </div>
 </section>
 
@@ -156,25 +160,31 @@ screenshots:
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <p><a href="/license.html" class="btn btn-default btn-block btn-lg">License</a></p>
+        <p><a href="/contributing.html" class="btn btn-default btn-block btn-lg">Contributing guidelines</a></p>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <pre><code>git clone https://github.com/dotledger/dotledger.git</code></pre>
+        <p><a href="/license.html" class="btn btn-default btn-block btn-lg">Apache 2.0 License</a></p>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-md-2 col-md-offset-3">
-        <p><a href="https://github.com/dotledger/dotledger" class="btn btn-lg btn-default btn-block"><span class="fa fa-github"></span> GitHub</a></p>
+      <div class="col-md-6 col-md-offset-3">
+        <p><a href="/corporate-contributor-license-agreement.html" class="btn btn-default btn-block btn-lg">Corporate contributor license agreement</a></p>
       </div>
-      <div class="col-md-2">
-        <p><a href="https://github.com/dotledger/dotledger/stargazers" class="btn btn-lg btn-default btn-block"><span class="fa fa-star"></span> Star</a></p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <p><a href="/individual-contributor-license-agreement.html" class="btn btn-default btn-block btn-lg">Individual contributor license agreement</a></p>
       </div>
-      <div class="col-md-2">
-        <p><a href="https://github.com/dotledger/dotledger/fork" class="btn btn-lg btn-default btn-block"><span class="fa fa-code-fork"></span> Fork</a></p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <p><a href="https://github.com/dotledger/dotledger" class="btn btn-default btn-block btn-lg">GitHub</a></p>
       </div>
     </div>
   </div>
